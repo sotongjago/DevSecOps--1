@@ -1,26 +1,22 @@
 name: CI Pipeline
 
 on:
-  push:
+  push: 
     branches: [ "main" ]
 
-jobs:
+jobs: 
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+    - name: Setup Python
+      uses: actions/setup-python@v4  
+      with:python-version: '3.x'
 
-      # Langkah baru: Meng-install library yang dibutuhkan
-      - name: Install Dependencies
-        run: pip install pytest
+    - name: Install Dependencies
+      run: pip install pytest
 
-      # Langkah baru: Menjalankan unit test
-      - name: Run Tests
-        run: pytest
+    - name: Run Tests
+      run: pytest
